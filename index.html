@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" type="image" href="icon.jfif">
+    <title>Coffeelogy</title>
+  </head>
+  <body>
+    <div id="main">
+      <div id="banner"></div>
+      <span id="logo">Coffeelogy</span>
+
+      <div id="text_portion">
+        <span style="font-weight: bold; font-size: 15px">Your Customers</span>
+        <br />
+        <br />
+        Manhattan Street 25 <br />
+        Jakarta, Indonesia 12850
+      </div>
+
+      <div id="date_text">
+        <span>INVOICE </span>
+        <span id="date" style="margin-left: 40%"></span>
+      </div>
+
+      <div id="input">
+        <label>Menu: </label>
+        <select
+          name="menu"
+          id="menu"
+          style="margin-left: 10%"
+          onchange="place_price(), null_bill()"
+        >
+          <option></option>
+          <option id="1" value="190">Cappucino</option>
+          <option id="2" value="200">Espresso</option>
+          <option id="3" value="220">Creamy Coffee</option>
+          <option id="4" value="150">Black Coffee</option>
+          <option id="5" value="180">Milk Coffee</option>
+        </select>
+
+        <br />
+        <br />
+        <label>Price: </label>
+        <input
+          id="price"
+          type="text"
+          style="margin-left: 12%"
+          size="12"
+          disabled
+        />
+
+        <br />
+        <br />
+        <label>Quantity: </label>
+        <input
+          id="quantity"
+          type="number"
+          style="margin-left: 4%; width: 39%"
+          size="12"
+          onchange="calculate()"
+        />
+
+        <br />
+        <br />
+        <label>Amount: </label>
+        <input
+          id="coffee_bill"
+          type="text"
+          style="margin-left: 5%"
+          size="12"
+          disabled
+        />
+      </div>
+
+      <!--       Item#      Discription       Quantity       Price    -->
+      <table id="items_box">
+        <thead style="border-bottom: 4px solid #ce3440">
+          <tr id="headings">
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody id="items"></tbody>
+      </table>
+
+      <div id="line" style="margin-top: 2%"></div>
+      <div id="line2"></div>
+
+      <button class="btn" onclick="add(), null_value()">Add</button>
+
+      <button
+        class="btn"
+        style="margin-left: 1%"
+        onclick="total_bill_calculate()"
+      >
+        Total
+      </button>
+
+      <button class="btn" style="margin-top: -8%" onclick="print_bill()">
+        Print
+      </button>
+
+      <button
+        class="btn"
+        style="margin-top: -8%; margin-left: 1%"
+        onclick="reset()"
+      >
+        Reset
+      </button>
+
+      <div id="billing">
+        <div id="billing1">
+          <label>Sub Total:</label>
+          <br />
+          <label>Discount:</label>
+
+          <br />
+          <label>Tax:</label>
+          <br />
+          <label>Amount Due:</label>
+        </div>
+
+        <div id="billing2" style="margin-left: 44%">
+          <span id="subtotal">-</span>
+          <br />
+          <span id="discount">-</span>
+          <br />
+          <span id="tax">-</span>
+          <br />
+          <span id="due" style="color: #ce3440">-</span>
+        </div>
+      </div>
+
+      <div id="text_portion_2">
+        <span style="font-weight: bold; font-size: 15px; margin-top: 10%"
+          >PNY Developers</span
+        >
+        <br /><br />
+        <p>
+          Arfa Software Technology Park <br />Lahore, Pakistan <br /><br />
+          www.pnytrainings.com
+        </p>
+      </div>
+    </div>
+
+    <script>
+      var dt = new Date();
+      document.getElementById("date").innerHTML =
+        dt.getDate() +
+        "/" +
+        (parseInt(dt.getMonth()) + 1) +
+        "/" +
+        dt.getFullYear();
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
